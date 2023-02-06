@@ -11,8 +11,7 @@ class DepartmentsController < ApplicationController
     the_id = params.fetch("path_id")
 
     matching_departments = Department.where({ :id => the_id })
-
-    @the_department = matching_departments
+    @the_department = matching_departments[0]
 
     render({ :template => "departments/show.html.erb" })
   end
